@@ -88,8 +88,8 @@ pipeline {
             steps {
                 script {
                     echo "Pushing Docker image to DockerHub..."
-                    withCredentials([string(credentialsId: 'dockertoken', variable: 'dockertoken')]) {
-                        bat "docker login -u amolgadkari90 -p ${dockertoken}"
+                    withCredentials([string(credentialsId: 'dockerpassword', variable: 'dockerpassword')]) {
+                        bat "docker login -u amolgadkari90 -p ${dockerpassword}"
                         bat "docker push ${env.DOCKER_IMAGE_NAME}"
                         echo "Docker image pushed successfully!"
                     }
